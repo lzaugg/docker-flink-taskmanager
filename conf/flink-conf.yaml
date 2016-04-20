@@ -1,0 +1,10 @@
+jobmanager.rpc.address: FLINK_JOBMANAGER_HOST_NAME-not-configured
+jobmanager.rpc.port: 6123
+taskmanager.heap.mb: 512
+taskmanager.numberOfTaskSlots: 1
+taskmanager.memory.preallocate: false
+parallelism.default: 1
+env.log.dir: /flink/log
+blob.server.port: 6124
+blob.storage.directory: /flink/blob
+taskmanager.tmp.dirs: /flink/tmp
