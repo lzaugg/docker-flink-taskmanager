@@ -14,16 +14,16 @@ The built docker image has (more or less):
 - a convenient way to configure flink through environment variables (`FLINK_CONF`,..)
 - patched version of Flink 1.0.1 with akka 2.4.4 to support NATed netty with bind hostname and exposed hostname (check tag of docker image!)
 
-*Important*: It's based on the same image as the JobManager. For more information about the purpose of this build definition and more information just have a look at the JobManagers README [lzaugg/flink-jobmanager].
+**Important**: It's based on the same image as the JobManager. For more information about the purpose of this build definition and more information just have a look at the JobManagers README [lzaugg/flink-jobmanager].
 
 Quick Start
 -------------
 ```
 $ # start jobmanager
-$ docker run -e FLINK_ADVERTISED_HOST_NAME=192.168.99.100 -p 6123:6123 -p 6124:6124 -p 8081:8081 lzaugg/flink-jobmanager:1.0.1_akka-2.4.4
+$ docker run -e FLINK_ADVERTISED_HOST_NAME=192.168.99.100 -p 6123:6123 -p 6124:6124 -p 8081:8081 lzaugg/flink-jobmanager:1.0.1_akka-2.4.4-latest
 $ 
 $ # start taskmanager
-$ docker run -e FLINK_JOBMANAGER_HOST_NAME=192.168.99.100 lzaugg/flink-taskmanager:1.0.1_akka-2.4.4
+$ docker run -e FLINK_JOBMANAGER_HOST_NAME=192.168.99.100 lzaugg/flink-taskmanager:1.0.1_akka-2.4.4-latest
 ```
 
 
@@ -36,5 +36,5 @@ Several environment variables are supported. The most important are:
 - `FLINK_JOBMANAGER_HOST_NAME`: convenient way to set ```jobmanager.rpc.address```. SHOULD be configured.
 
 [Flink]: https://flink.apache.org/
-[lzaugg/flink-jobmanager]: https://registry.hub.docker.com/u/lzaugg/flink-jobmanager
-[lzaugg/flink-taskmanager]: https://registry.hub.docker.com/u/lzaugg/flink-taskmanager
+[lzaugg/flink-jobmanager]: https://hub.docker.com/r/lzaugg/flink-jobmanager/
+[lzaugg/flink-taskmanager]: https://hub.docker.com/r/lzaugg/flink-taskmanager/
