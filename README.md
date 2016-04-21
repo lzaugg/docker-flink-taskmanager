@@ -1,6 +1,10 @@
 Docker Flink TaskManager
 ============================
-This repository holds yet another flink build definition for docker to run Flink in containers. There exists a build definition for the Flink jobmanager and one for the Flink taskmanager. The motivation to create this build definition was to get Flink running in Docker with multiple docker containers distributed on different machines (e.g. AWS ElasticBeanstalk, AWS ECS, ..).
+This repository holds yet another flink build definition for docker to run Apache [Flink] in containers. There exists a build definition for the Flink jobmanager and one for the Flink taskmanager. The motivation to create this build definition was to get Flink running in Docker with multiple docker containers distributed on different machines (e.g. AWS ElasticBeanstalk, AWS ECS, ..).
+
+JobManager and TaskManager are automatically builded and available on Docker registry:
+- [lzaugg/flink-jobmanager]
+- [lzaugg/flink-taskmanager]
 
 The built docker image has (more or less):
 - proper signal handling
@@ -10,8 +14,7 @@ The built docker image has (more or less):
 - a convenient way to configure flink through environment variables (`FLINK_CONF`,..)
 - patched version of Flink 1.0.1 with akka 2.4.4 to support NATed netty with bind hostname and exposed hostname (check tag of docker image!)
 
-
-It's based on the same image as the JobManager. For more information about the purpose of this build definition and more information just have a look at the JobManagers README.
+*Important*: It's based on the same image as the JobManager. For more information about the purpose of this build definition and more information just have a look at the JobManagers README [lzaugg/flink-jobmanager].
 
 Quick Start
 -------------
@@ -31,3 +34,7 @@ Several environment variables are supported. The most important are:
 - `FLINK_ENV_JAVA_OPTS`: additional java options for flink, e.g. properties (via -D)
 - `FLINK_CONF`: accepts any YAML string. Can be used to configure (override) everything which resides in flink-conf.yaml. E.g. ```{jobmanager.rpc.port: 6123}```
 - `FLINK_JOBMANAGER_HOST_NAME`: convenient way to set ```jobmanager.rpc.address```. SHOULD be configured.
+
+[Flink]: https://flink.apache.org/
+[lzaugg/flink-jobmanager]: https://registry.hub.docker.com/u/lzaugg/flink-jobmanager
+[lzaugg/flink-taskmanager]: https://registry.hub.docker.com/u/lzaugg/flink-taskmanager
