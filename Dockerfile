@@ -6,5 +6,9 @@ ADD conf/flink-conf.yaml $FLINK_HOME/conf/
 ENV FLINK_CLASS_TO_RUN org.apache.flink.runtime.taskmanager.TaskManager
 
 ENTRYPOINT [ "/opt/flink/bin/docker_flink-run.sh" ]
+# 6125: taskmanager rpc
+# 6126: taskmanager data
+
+EXPOSE 6125 6126
 
 CMD ["--configDir", "/opt/flink/conf/" ]
