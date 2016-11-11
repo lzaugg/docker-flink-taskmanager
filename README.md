@@ -15,6 +15,9 @@ Environment
     
     **SHOULD BE SET for TaskManager**. Hostname (or IP address) to be used as connection endpoint of the JobManager. It's the same as setting `FLINK_CONF` to `jobmanager.rpc.address: <job-manager-ip>`, just more comfortable.
 
+- **`FLINK_ADVERTISED_HOST_NAME`**
+
+    **SHOULD BE SET for TaskManager**. Advertised hostname of taskmanager for RPC connections (back from jobmanager).
 
 [Flink]: https://flink.apache.org/
 [lzaugg/flink-jobmanager]: https://hub.docker.com/r/lzaugg/flink-jobmanager/

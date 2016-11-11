@@ -1,4 +1,4 @@
-FROM lzaugg/flink-jobmanager:1.1.2_akka-2.4.9-latest
+FROM lzaugg/flink-jobmanager:1.1.3_akka-2.4.12-latest
 MAINTAINER l.zaugg@mypi.ch
 
 ADD conf/flink-conf.yaml $FLINK_HOME/conf/
