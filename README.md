@@ -19,6 +19,18 @@ Environment
 
     **SHOULD BE SET for TaskManager**. Advertised hostname of taskmanager for RPC connections (back from jobmanager).
 
+Example
+---------
+
+```
+docker run -it --rm -e FLINK_ADVERTISED_HOST_NAME=myhost \
+  -e FLINK_JOBMANAGER_HOST_NAME=myhost \
+  -e FLINK_STATE_URL=s3://s3-flink-state/checkpoints \
+  -e HADOOP_CORE_CONF='{"fs.s3a.access.key":"key","fs.s3a.secret.key":"asdf"}' \
+  -e FLINK_CONF='{"recovery.jobmanager.port":6127,"recovery.mode": "zookeeper","recovery.zookeeper.quorum": "zookeeperhost:2181", "recovery.zookeeper.path.root":"/flink","recovery.zookeeper.storageDir":"s3://s3-flink-state/jobmanager"}' \
+  -p 6125:6125 -p 6126:6126  lzaugg/flink-taskmanager:1.1.3_akka-2.4.12-latest
+```
+
 [Flink]: https://flink.apache.org/
 [lzaugg/flink-jobmanager]: https://hub.docker.com/r/lzaugg/flink-jobmanager/
 [lzaugg/flink-taskmanager]: https://hub.docker.com/r/lzaugg/flink-taskmanager/
